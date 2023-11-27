@@ -1,6 +1,10 @@
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 public class WordCountMap {
     /**
      * Receive a string of multiple words.
@@ -15,7 +19,19 @@ public class WordCountMap {
      * @return a Map (key/value pairs) of all the words mapped to their number of occurrences.
      */
     public Map<String, Integer> returnWordMap(String words){
+      String[] splitArray = words.split(" ");
+      
+      List<String> wordList = Arrays.asList(splitArray);
+      Map<String, Integer> freq = new HashMap<String, Integer>();
 
+     if(!words.isEmpty() ) {
+      for (String x : wordList){
+        freq.put(x, Collections.frequency(wordList, x));
+      }
+         return freq;
+     }
         return null;
     }
+
+
 }
